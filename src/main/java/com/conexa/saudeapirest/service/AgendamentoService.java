@@ -19,6 +19,7 @@ import com.conexa.saudeapirest.dto.UsuarioDTO;
 import com.conexa.saudeapirest.dto.UsuarioMedicoDTO;
 import com.conexa.saudeapirest.exception.MessageException;
 import com.conexa.saudeapirest.models.Agendamento;
+import com.conexa.saudeapirest.models.Paciente;
 import com.conexa.saudeapirest.models.Usuario;
 import com.conexa.saudeapirest.repository.AgendamentoRepository;
 import com.conexa.saudeapirest.util.Utilitario;
@@ -53,9 +54,9 @@ public class AgendamentoService {
 	}
 
 	public List<AgendamentoDoDiaDTO> carregarAgendamentosDoDia(List<Agendamento> listaAgendamento) {
-		AgendamentoDoDiaDTO agendamentoDoDiaDTO = new AgendamentoDoDiaDTO();
 		List<AgendamentoDoDiaDTO> listaAgendamentoDoDia = new ArrayList<>();
 		listaAgendamento.stream().forEach(agendamento -> {
+			AgendamentoDoDiaDTO agendamentoDoDiaDTO = new AgendamentoDoDiaDTO();
 			agendamentoDoDiaDTO.setData_hora_atendimento(agendamento.getData_hora_atendimento());
 			agendamentoDoDiaDTO.setId_paciente(agendamento.getPaciente().getId());
 			listaAgendamentoDoDia.add(agendamentoDoDiaDTO);
